@@ -42,25 +42,23 @@ nav { background: var(--navy); border-bottom: 1px solid rgba(255,255,255,0.07); 
 .btn-outline:hover { background: var(--green-light); }
 
 /* HERO */
-.hero { background: var(--navy); border-bottom: 3px solid var(--green); }
-.hero-inner { max-width: var(--max); margin: 0 auto; padding: 80px 40px 72px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
-.hero-illustration { display: flex; align-items: center; justify-content: center; }
+.hero { background: var(--navy); border-bottom: 3px solid var(--green); position: relative; overflow: hidden; }
 .hero-pattern { position: absolute; inset: 0; pointer-events: none;
   background-image: linear-gradient(rgba(90,173,69,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(90,173,69,0.06) 1px, transparent 1px);
   background-size: 40px 40px; }
-.hero { position: relative; overflow: hidden; }
+.hero-inner { max-width: var(--max); margin: 0 auto; padding: 80px 40px 72px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+.hero-illustration { display: flex; align-items: center; justify-content: center; }
 .hero-eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #5aad45; margin-bottom: 20px; display: flex; align-items: center; gap: 8px; }
 .hero-eyebrow::before { content: ''; display: inline-block; width: 24px; height: 2px; background: #5aad45; border-radius: 1px; }
 h1 { font-size: clamp(32px, 3.8vw, 56px); font-weight: 700; color: #fff; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 20px; }
 h1 em { color: #5aad45; font-style: normal; }
 .hero-sub { font-size: 15px; color: rgba(255,255,255,0.6); line-height: 1.75; margin-bottom: 32px; }
 .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
-.hero-stats { display: flex; gap: 0; margin-top: 48px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 32px; }
+.hero-stats { display: flex; margin-top: 48px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 32px; }
 .stat { padding-right: 36px; margin-right: 36px; border-right: 1px solid rgba(255,255,255,0.1); }
 .stat:last-child { border-right: none; margin-right: 0; padding-right: 0; }
 .stat-num { font-size: 26px; font-weight: 700; color: #fff; line-height: 1; }
 .stat-label { font-size: 11px; color: rgba(255,255,255,0.4); margin-top: 4px; letter-spacing: 0.05em; text-transform: uppercase; }
-
 
 /* SECTIONS */
 section { padding: 60px 0; }
@@ -73,7 +71,10 @@ h2 { font-size: clamp(24px, 2.5vw, 34px); font-weight: 700; color: var(--text-pr
 .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
 .about-img { aspect-ratio: 3/2; }
 .about-body p { font-size: 15px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 16px; }
-
+.about-checklist { display: flex; flex-direction: column; gap: 12px; margin-top: 24px; }
+.check-item { display: flex; align-items: flex-start; gap: 12px; font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+.check-icon { width: 24px; height: 24px; background: var(--green-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+.check-item strong { color: var(--text-primary); }
 
 /* SERVICES */
 .services { background: var(--body-bg); }
@@ -142,31 +143,42 @@ footer { background: var(--charcoal); border-top: 1px solid rgba(255,255,255,0.0
 .footer-logo { display: flex; align-items: center; }
 footer p { font-size: 12px; color: rgba(255,255,255,0.28); }
 
-/* RESPONSIVE */
+/* RESPONSIVE — 900px tablet */
 @media (max-width: 900px) {
-  .hero-inner, .about-grid, .coverage-grid, .contact-grid { grid-template-columns: 1fr; }
-  .about-img, .coverage-img, .hero-illustration { display: none; }
-  .services-grid, .loc-grid, .testi-grid { grid-template-columns: 1fr 1fr; }
-  .why-grid { grid-template-columns: 1fr; }
-  .inner, .nav-inner, .hero-inner, footer .footer-inner { padding-left: 24px; padding-right: 24px; }
-  section .inner { padding-left: 24px; padding-right: 24px; }
-}
-@media (max-width: 600px) {
-  .nav-links { display: none; }
-  .services-grid, .loc-grid, .testi-grid, .form-row-2 { grid-template-columns: 1fr; }
+  .inner, .nav-inner, .hero-inner, .footer-inner { padding-left: 24px; padding-right: 24px; }
+  .hero-inner { grid-template-columns: 1fr; gap: 0; padding-top: 56px; padding-bottom: 52px; }
+  .hero-illustration { display: none; }
+  .hero-eyebrow { justify-content: center; }
+  .hero-text { text-align: center; }
+  .hero-actions { justify-content: center; }
+  .hero-stats { justify-content: center; }
+  .stat { text-align: center; }
+  .about-grid, .coverage-grid, .contact-grid { grid-template-columns: 1fr; }
+  .about-img, .coverage-img { display: none; }
+  .services-grid, .loc-grid { grid-template-columns: 1fr 1fr; }
 }
 
-.about-checklist { display: flex; flex-direction: column; gap: 12px; margin-top: 24px; }
-.check-item { display: flex; align-items: flex-start; gap: 12px; font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
-.check-icon { width: 24px; height: 24px; background: var(--green-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
-.check-item strong { color: var(--text-primary); }
+/* RESPONSIVE — 600px mobile */
+@media (max-width: 600px) {
+  .inner, .nav-inner, .hero-inner, .footer-inner { padding-left: 20px; padding-right: 20px; }
+  .nav-links { display: none; }
+  .hero-inner { padding-top: 48px; padding-bottom: 44px; }
+  h1 { font-size: 28px; }
+  .hero-stats { flex-direction: column; gap: 20px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 28px; }
+  .stat { border-right: none; padding-right: 0; margin-right: 0; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 16px; }
+  .stat:last-child { border-bottom: none; padding-bottom: 0; }
+  .services-grid, .loc-grid, .form-row-2 { grid-template-columns: 1fr; }
+  .section-sub { margin-bottom: 28px; }
+  .coverage-pills { justify-content: center; }
+  .footer-inner { flex-direction: column; align-items: center; text-align: center; }
+}
 </style>
 </head>
 <body>
 
 <nav>
   <div class="nav-inner">
-    <a href="#" class="logo" style="display:flex;align-items:center;line-height:1;">
+    <a href="#" class="logo">
       <svg width="160" height="40" viewBox="0 0 320 80" fill="none" xmlns="http://www.w3.org/2000/svg">
         <g transform="translate(0,10)">
           <rect x="0" y="0" width="40" height="12" rx="2" stroke="#ffffff" stroke-width="2"/>
@@ -211,55 +223,36 @@ footer p { font-size: 12px; color: rgba(255,255,255,0.28); }
     </div>
     <div class="hero-illustration" aria-hidden="true">
       <svg viewBox="0 0 400 480" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:420px;opacity:0.18;">
-        <!-- Cabinet frame -->
         <rect x="60" y="20" width="280" height="440" rx="6" stroke="white" stroke-width="2.5"/>
-        <!-- Top panel -->
         <rect x="60" y="20" width="280" height="28" rx="4" fill="white" fill-opacity="0.06" stroke="white" stroke-width="1"/>
-        <!-- Bottom panel -->
         <rect x="60" y="432" width="280" height="28" rx="4" fill="white" fill-opacity="0.06" stroke="white" stroke-width="1"/>
-        <!-- Cable mgmt strips left/right -->
         <rect x="60" y="48" width="18" height="384" fill="white" fill-opacity="0.04" stroke="white" stroke-width="0.75"/>
         <rect x="322" y="48" width="18" height="384" fill="white" fill-opacity="0.04" stroke="white" stroke-width="0.75"/>
-
-        <!-- 1U server rows — 14 of them -->
         <rect x="82" y="52" width="236" height="22" rx="2" fill="white" fill-opacity="0.07" stroke="white" stroke-width="0.75"/>
         <circle cx="298" cy="63" r="3" fill="#5aad45" fill-opacity="0.9"/>
         <circle cx="310" cy="63" r="3" fill="#5aad45" fill-opacity="0.5"/>
         <rect x="92" y="58" width="60" height="5" rx="1" fill="white" fill-opacity="0.15"/>
-        <rect x="158" y="58" width="40" height="5" rx="1" fill="white" fill-opacity="0.08"/>
-
         <rect x="82" y="78" width="236" height="22" rx="2" fill="white" fill-opacity="0.07" stroke="white" stroke-width="0.75"/>
         <circle cx="298" cy="89" r="3" fill="#5aad45" fill-opacity="0.9"/>
         <circle cx="310" cy="89" r="3" fill="#5aad45" fill-opacity="0.9"/>
         <rect x="92" y="84" width="80" height="5" rx="1" fill="white" fill-opacity="0.15"/>
-        <rect x="178" y="84" width="30" height="5" rx="1" fill="white" fill-opacity="0.08"/>
-
         <rect x="82" y="104" width="236" height="22" rx="2" fill="white" fill-opacity="0.07" stroke="white" stroke-width="0.75"/>
         <circle cx="298" cy="115" r="3" fill="#5aad45" fill-opacity="0.9"/>
         <circle cx="310" cy="115" r="3" fill="white" fill-opacity="0.2"/>
         <rect x="92" y="110" width="50" height="5" rx="1" fill="white" fill-opacity="0.15"/>
-        <rect x="148" y="110" width="55" height="5" rx="1" fill="white" fill-opacity="0.08"/>
-
-        <!-- 2U server -->
         <rect x="82" y="130" width="236" height="48" rx="2" fill="white" fill-opacity="0.09" stroke="white" stroke-width="0.75"/>
         <circle cx="298" cy="150" r="3" fill="#5aad45" fill-opacity="0.9"/>
         <circle cx="310" cy="150" r="3" fill="#5aad45" fill-opacity="0.9"/>
         <rect x="92" y="140" width="100" height="6" rx="1" fill="white" fill-opacity="0.15"/>
         <rect x="92" y="152" width="70" height="5" rx="1" fill="white" fill-opacity="0.08"/>
-        <rect x="168" y="152" width="40" height="5" rx="1" fill="white" fill-opacity="0.06"/>
-
         <rect x="82" y="182" width="236" height="22" rx="2" fill="white" fill-opacity="0.07" stroke="white" stroke-width="0.75"/>
         <circle cx="298" cy="193" r="3" fill="#5aad45" fill-opacity="0.5"/>
         <circle cx="310" cy="193" r="3" fill="#5aad45" fill-opacity="0.9"/>
         <rect x="92" y="188" width="65" height="5" rx="1" fill="white" fill-opacity="0.15"/>
-
         <rect x="82" y="208" width="236" height="22" rx="2" fill="white" fill-opacity="0.07" stroke="white" stroke-width="0.75"/>
         <circle cx="298" cy="219" r="3" fill="#5aad45" fill-opacity="0.9"/>
         <circle cx="310" cy="219" r="3" fill="#5aad45" fill-opacity="0.9"/>
         <rect x="92" y="214" width="90" height="5" rx="1" fill="white" fill-opacity="0.15"/>
-        <rect x="188" y="214" width="35" height="5" rx="1" fill="white" fill-opacity="0.08"/>
-
-        <!-- Patch panel -->
         <rect x="82" y="234" width="236" height="16" rx="2" fill="white" fill-opacity="0.04" stroke="white" stroke-width="0.75"/>
         <rect x="90" y="238" width="6" height="8" rx="1" fill="white" fill-opacity="0.2"/>
         <rect x="100" y="238" width="6" height="8" rx="1" fill="white" fill-opacity="0.2"/>
@@ -283,37 +276,27 @@ footer p { font-size: 12px; color: rgba(255,255,255,0.28); }
         <rect x="280" y="238" width="6" height="8" rx="1" fill="white" fill-opacity="0.2"/>
         <rect x="290" y="238" width="6" height="8" rx="1" fill="white" fill-opacity="0.2"/>
         <rect x="300" y="238" width="6" height="8" rx="1" fill="white" fill-opacity="0.2"/>
-
         <rect x="82" y="254" width="236" height="22" rx="2" fill="white" fill-opacity="0.07" stroke="white" stroke-width="0.75"/>
         <circle cx="298" cy="265" r="3" fill="#5aad45" fill-opacity="0.9"/>
         <circle cx="310" cy="265" r="3" fill="#5aad45" fill-opacity="0.9"/>
         <rect x="92" y="260" width="75" height="5" rx="1" fill="white" fill-opacity="0.15"/>
-
         <rect x="82" y="280" width="236" height="22" rx="2" fill="white" fill-opacity="0.07" stroke="white" stroke-width="0.75"/>
         <circle cx="298" cy="291" r="3" fill="#5aad45" fill-opacity="0.9"/>
         <circle cx="310" cy="291" r="3" fill="white" fill-opacity="0.15"/>
         <rect x="92" y="286" width="55" height="5" rx="1" fill="white" fill-opacity="0.15"/>
-        <rect x="153" y="286" width="45" height="5" rx="1" fill="white" fill-opacity="0.08"/>
-
-        <!-- 2U storage -->
         <rect x="82" y="306" width="236" height="48" rx="2" fill="white" fill-opacity="0.09" stroke="white" stroke-width="0.75"/>
         <circle cx="298" cy="326" r="3" fill="#5aad45" fill-opacity="0.9"/>
         <circle cx="310" cy="326" r="3" fill="#5aad45" fill-opacity="0.5"/>
         <rect x="92" y="316" width="110" height="6" rx="1" fill="white" fill-opacity="0.15"/>
         <rect x="92" y="328" width="80" height="5" rx="1" fill="white" fill-opacity="0.08"/>
-
         <rect x="82" y="358" width="236" height="22" rx="2" fill="white" fill-opacity="0.07" stroke="white" stroke-width="0.75"/>
         <circle cx="298" cy="369" r="3" fill="#5aad45" fill-opacity="0.9"/>
         <circle cx="310" cy="369" r="3" fill="#5aad45" fill-opacity="0.9"/>
         <rect x="92" y="364" width="60" height="5" rx="1" fill="white" fill-opacity="0.15"/>
-
         <rect x="82" y="384" width="236" height="22" rx="2" fill="white" fill-opacity="0.07" stroke="white" stroke-width="0.75"/>
         <circle cx="298" cy="395" r="3" fill="white" fill-opacity="0.15"/>
         <circle cx="310" cy="395" r="3" fill="#5aad45" fill-opacity="0.9"/>
         <rect x="92" y="390" width="85" height="5" rx="1" fill="white" fill-opacity="0.15"/>
-        <rect x="183" y="390" width="40" height="5" rx="1" fill="white" fill-opacity="0.08"/>
-
-        <!-- Empty U slots -->
         <rect x="82" y="410" width="236" height="22" rx="2" fill="white" fill-opacity="0.03" stroke="white" stroke-width="0.5" stroke-dasharray="4 3"/>
       </svg>
     </div>
@@ -339,27 +322,19 @@ footer p { font-size: 12px; color: rgba(255,255,255,0.28); }
         </div>
         <div class="about-checklist">
           <div class="check-item">
-            <div class="check-icon">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#3a7d2c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            </div>
+            <div class="check-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#3a7d2c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
             <span><strong>Vetted &amp; badged</strong> — background-checked and facility-authorized at every location</span>
           </div>
           <div class="check-item">
-            <div class="check-icon">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#3a7d2c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            </div>
+            <div class="check-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#3a7d2c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
             <span><strong>Full documentation</strong> — timestamped photo reports and activity logs on every job</span>
           </div>
           <div class="check-item">
-            <div class="check-icon">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#3a7d2c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            </div>
+            <div class="check-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#3a7d2c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
             <span><strong>Rapid response</strong> — on-site within hours, day or night</span>
           </div>
           <div class="check-item">
-            <div class="check-icon">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#3a7d2c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            </div>
+            <div class="check-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#3a7d2c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
             <span><strong>Flexible engagements</strong> — one-time tasks, projects, or ongoing retainer</span>
           </div>
         </div>
@@ -417,9 +392,7 @@ footer p { font-size: 12px; color: rgba(255,255,255,0.28); }
     <p class="section-sub">We are credentialed and operating inside three of Chicago's most important colocation facilities today.</p>
     <div class="loc-grid">
       <div class="loc-card">
-        <div class="loc-img">
-          <img src="images/coresite-ch1.jpg" alt="CoreSite data center" loading="lazy">
-        </div>
+        <div class="loc-img"><img src="images/coresite-ch1.jpg" alt="CoreSite CH1" loading="lazy"></div>
         <div class="loc-body">
           <div class="loc-tag">CoreSite</div>
           <h3>CoreSite CH1</h3>
@@ -430,9 +403,7 @@ footer p { font-size: 12px; color: rgba(255,255,255,0.28); }
         </div>
       </div>
       <div class="loc-card">
-        <div class="loc-img">
-          <img src="images/coresite0ch2.jpg" alt="Data center server room" loading="lazy">
-        </div>
+        <div class="loc-img"><img src="images/coresite-ch2.jpg" alt="CoreSite CH2" loading="lazy"></div>
         <div class="loc-body">
           <div class="loc-tag">CoreSite</div>
           <h3>CoreSite CH2</h3>
@@ -443,9 +414,7 @@ footer p { font-size: 12px; color: rgba(255,255,255,0.28); }
         </div>
       </div>
       <div class="loc-card">
-        <div class="loc-img">
-          <img src="images/equinix.jpg" alt="Equinix data center" loading="lazy">
-        </div>
+        <div class="loc-img"><img src="images/equinix.jpg" alt="Equinix CH3" loading="lazy"></div>
         <div class="loc-body">
           <div class="loc-tag">Equinix</div>
           <h3>Equinix CH3</h3>
@@ -493,7 +462,7 @@ footer p { font-size: 12px; color: rgba(255,255,255,0.28); }
         <h2>Request a service or quote</h2>
         <p>Tell us about your project and we'll get back to you within a few hours. Whether it's a single task at one of our Chicago facilities or a multi-state deployment, we're ready to help.</p>
         <div class="contact-details">
-          <div class="cinfo"><strong>Email</strong><span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="b9d0d7dfd6f9cbd8dad2d1d8d7ddca97dad6d4">[email&#160;protected]</a></span></div>
+          <div class="cinfo"><strong>Email</strong><span>info@rackhands.com</span></div>
           <div class="cinfo"><strong>Phone</strong><span>(312) 555-0190</span></div>
           <div class="cinfo"><strong>Based in</strong><span>Chicago, IL</span></div>
           <div class="cinfo"><strong>Hours</strong><span>24/7 for urgent requests</span></div>
@@ -513,7 +482,7 @@ footer p { font-size: 12px; color: rgba(255,255,255,0.28); }
             <option value="" disabled selected>Facility or location</option>
             <option>CoreSite CH1 — Chicago</option>
             <option>CoreSite CH2 — Chicago</option>
-            <option>Equinix CH3 — Elk Grove Village</option>
+            <option>Equinix CH3 — Chicago</option>
             <option>Other Chicagoland facility</option>
             <option>Out of state — I'll describe below</option>
             <option>Not sure yet</option>
