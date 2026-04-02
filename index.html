@@ -454,6 +454,7 @@ footer p { font-size: 12px; color: rgba(255,255,255,0.28); }
 </section>
 
 <!-- CONTACT -->
+<!-- CONTACT -->
 <section class="contact" id="contact">
   <div class="inner">
     <div class="contact-grid">
@@ -469,29 +470,35 @@ footer p { font-size: 12px; color: rgba(255,255,255,0.28); }
         </div>
       </div>
       <div class="contact-form">
-        <div class="form-row-2">
-          <input type="text" placeholder="Your name">
-          <input type="text" placeholder="Company">
-        </div>
-        <div class="form-row-2">
-          <input type="email" placeholder="Email address">
-          <input type="tel" placeholder="Phone (optional)">
-        </div>
-        <div class="form-field">
-          <select>
-            <option value="" disabled selected>Facility or location</option>
-            <option>CoreSite CH1 — Chicago</option>
-            <option>CoreSite CH2 — Chicago</option>
-            <option>Equinix CH3 — Chicago</option>
-            <option>Other Chicagoland facility</option>
-            <option>Out of state — I'll describe below</option>
-            <option>Not sure yet</option>
-          </select>
-        </div>
-        <div class="form-field">
-          <textarea placeholder="Describe your project or request..."></textarea>
-        </div>
-        <button class="btn" style="width:100%;padding:12px;font-size:14px;">Send request</button>
+        <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="contact">
+          <p class="hidden" style="display:none;">
+            <label>Don't fill this out: <input name="bot-field"></label>
+          </p>
+          <div class="form-row-2">
+            <input type="text" name="name" placeholder="Your name" required>
+            <input type="text" name="company" placeholder="Company">
+          </div>
+          <div class="form-row-2">
+            <input type="email" name="email" placeholder="Email address" required>
+            <input type="tel" name="phone" placeholder="Phone (optional)">
+          </div>
+          <div class="form-field">
+            <select name="facility">
+              <option value="" disabled selected>Facility or location</option>
+              <option>CoreSite CH1 — Chicago</option>
+              <option>CoreSite CH2 — Chicago</option>
+              <option>Equinix CH3 — Chicago</option>
+              <option>Other Chicagoland facility</option>
+              <option>Out of state — I'll describe below</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <textarea name="message" placeholder="Describe your project or request..."></textarea>
+          </div>
+          <button type="submit" class="btn" style="width:100%;padding:12px;font-size:14px;">Send request</button>
+        </form>
       </div>
     </div>
   </div>
