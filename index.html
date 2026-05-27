@@ -146,7 +146,7 @@ h2 { font-size: clamp(24px, 2.5vw, 34px); font-weight: 700; color: var(--text-pr
 .locations h2 { color: #fff; }
 .locations .section-label { color: #5aad45; }
 .locations .section-sub { color: rgba(255,255,255,0.55); }
-.loc-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 20px; }
+.loc-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 20px; }
 .loc-card { background: var(--navy-mid); border: 1px solid rgba(255,255,255,0.09); border-radius: 10px; overflow: hidden; transition: border-color 0.2s; }
 .loc-card:hover { border-color: rgba(90,173,69,0.45); }
 .loc-img { aspect-ratio: 16/9; overflow: hidden; }
@@ -210,7 +210,7 @@ footer p { font-size: 12px; color: rgba(255,255,255,0.28); }
   .stat { text-align: center; }
   .about-grid, .coverage-grid, .contact-grid { grid-template-columns: 1fr; }
   .about-img, .coverage-img { display: none; }
-  .services-grid, .loc-grid { grid-template-columns: 1fr 1fr; }
+  .services-grid { grid-template-columns: 1fr 1fr; }
 }
 
 /* RESPONSIVE — 600px mobile */
@@ -459,6 +459,17 @@ footer p { font-size: 12px; color: rgba(255,255,255,0.28); }
           <div class="loc-meta">Badged &amp; active · All service types</div>
         </div>
       </div>
+        <div class="loc-card">
+          <div class="loc-img"><img src="images/equinix-ch3.jpg" alt="Equinix CH3" loading="lazy"></div>
+          <div class="loc-body">
+            <div class="loc-tag">Equinix</div>
+            <h3>Equinix CH3</h3>
+            <div class="loc-addr">1905 Lunt Ave, Elk Grove Village, IL 60007</div>
+            <p>Equinix's suburban Chicago campus in Elk Grove Village, offering high-density colocation with direct interconnection to the CH1 ecosystem. Full smart hands and remote hands coverage available.</p>
+            <hr class="loc-divider">
+            <div class="loc-meta">Badged &amp; active · All service types</div>
+          </div>
+        </div>
     </div>
   </div>
 </section>
