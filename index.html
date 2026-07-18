@@ -149,7 +149,7 @@ h2 { font-size: clamp(26px, 3vw, 38px); font-weight: 800; letter-spacing: -0.025
 /* ABOUT */
 .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
 .about-visual { position: relative; }
-.about-visual img { width: 100%; display: block; border-radius: var(--radius); box-shadow: var(--shadow-lg); }
+.about-visual img { width: 100%; max-height: 540px; object-fit: cover; display: block; border-radius: var(--radius); box-shadow: var(--shadow-lg); }
 .float-card { position: absolute; bottom: -22px; right: -18px; background: var(--white); border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow-lg); padding: 14px 18px; display: flex; align-items: center; gap: 12px; }
 .float-card .fc-ic { width: 36px; height: 36px; border-radius: 9px; background: var(--green-tint); display: grid; place-items: center; }
 .float-card .fc-ic svg { width: 18px; height: 18px; stroke: var(--green); stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; }
